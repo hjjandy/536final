@@ -4,4 +4,15 @@ Strowes presented a solution to measure the TCP round trip time (RTT) \cite{Stro
 the result of which can be used to set the network delay parameter in our future simulations. 
 Strowes applies different network conditions and packet loss rates in his experiments to 
 obtain desirable results. Though we measure different aspects of the network, the methodology
-can be employed in future work. 
+can be employed in future work. Maguire measured the network latencies using DTrace \cite{Maguire:2010}
+and Schlossnagle also presented experiments to measure the latencies
+for services using TCP protocol \cite{Schlossnagle:2013}. 
+All these results are helpful to determine the network delay parameter in simulations 
+as in our work.
+
+To assist the researchers
+measuring the network latency and bandwidth, Russinovich released a tool called PsPing
+\cite{PsPing:tool}, which can be used to measure the the real-world network behaviors. 
+PsPing can complete similar job as in our work in this paper if provided with the same  
+networks. The only difference is that our work is simpler to implement and 
+perform with Mininet as the underlying network platform. 
