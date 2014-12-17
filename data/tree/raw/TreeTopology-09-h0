@@ -1,0 +1,65 @@
+@Test for topology "TreeTopology" begins:
+
+>>Iteration 9<<
+Monitoring output for 140 seconds
+h0 server: ------------------------------------------------------------
+h0 server: Server listening on TCP port 5001
+h0 server: TCP window size: 85.3 KByte (default)
+h0 server: ------------------------------------------------------------
+h2 client: ------------------------------------------------------------
+h2 client: Client connecting to 10.0.0.1, TCP port 5001
+h2 client: TCP window size: 22.9 KByte (default)
+h2 client: ------------------------------------------------------------
+h2 client: [  5] local 10.0.0.3 port 60349 connected with 10.0.0.1 port 5001
+h0 server: [  6] local 10.0.0.1 port 5001 connected with 10.0.0.3 port 60349
+h3 client: ------------------------------------------------------------
+h3 client: Client connecting to 10.0.0.1, TCP port 5001
+h3 client: TCP window size: 22.9 KByte (default)
+h3 client: ------------------------------------------------------------
+h3 client: [  5] local 10.0.0.4 port 48184 connected with 10.0.0.1 port 5001
+h4 client: ------------------------------------------------------------
+h4 client: Client connecting to 10.0.0.1, TCP port 5001
+h4 client: TCP window size: 22.9 KByte (default)
+h4 client: ------------------------------------------------------------
+h4 client: [  5] local 10.0.0.5 port 52149 connected with 10.0.0.1 port 5001
+h5 client: ------------------------------------------------------------
+h5 client: Client connecting to 10.0.0.1, TCP port 5001
+h5 client: TCP window size: 22.9 KByte (default)
+h5 client: ------------------------------------------------------------
+h5 client: [  5] local 10.0.0.6 port 60868 connected with 10.0.0.1 port 5001
+h0 server: [  7] local 10.0.0.1 port 5001 connected with 10.0.0.4 port 48184
+h0 server: [  8] local 10.0.0.1 port 5001 connected with 10.0.0.5 port 52149
+h0 server: [  9] local 10.0.0.1 port 5001 connected with 10.0.0.6 port 60868
+h1 client: ------------------------------------------------------------
+h1 client: Client connecting to 10.0.0.1, TCP port 5001
+h1 client: TCP window size: 22.9 KByte (default)
+h1 client: ------------------------------------------------------------
+h1 client: [  5] local 10.0.0.2 port 47294 connected with 10.0.0.1 port 5001
+h0 server: [ 10] local 10.0.0.1 port 5001 connected with 10.0.0.2 port 47294
+h6 client: ------------------------------------------------------------
+h6 client: Client connecting to 10.0.0.1, TCP port 5001
+h6 client: TCP window size: 22.9 KByte (default)
+h6 client: ------------------------------------------------------------
+h6 client: [  5] local 10.0.0.7 port 44675 connected with 10.0.0.1 port 5001
+h0 server: [ 11] local 10.0.0.1 port 5001 connected with 10.0.0.7 port 44675
+h1 client: [ ID] Interval       Transfer     Bandwidth
+h1 client: [  5]  0.0-122.5 sec  8.12 MBytes   556 Kbits/sec
+h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h1 client: h0 server: [ ID] Interval       Transfer     Bandwidth
+h0 server: [ 10]  0.0-122.6 sec  8.12 MBytes   556 Kbits/sec
+h2 client: [ ID] Interval       Transfer     Bandwidth
+h2 client: [  5]  0.0-123.7 sec  9.25 MBytes   627 Kbits/sec
+h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h2 client: h0 server: [  6]  0.0-123.9 sec  9.25 MBytes   626 Kbits/sec
+h5 client: [ ID] Interval       Transfer     Bandwidth
+h5 client: [  5]  0.0-124.3 sec  5.62 MBytes   380 Kbits/sec
+h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h5 client: h0 server: [  9]  0.0-124.5 sec  5.62 MBytes   379 Kbits/sec
+h6 client: [ ID] Interval       Transfer     Bandwidth
+h6 client: [  5]  0.0-123.9 sec  5.50 MBytes   372 Kbits/sec
+h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h6 client: h3 client: [ ID] Interval       Transfer     Bandwidth
+h3 client: [  5]  0.0-124.9 sec  5.75 MBytes   386 Kbits/sec
+h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h3 client: h0 server: [ 11]  0.0-124.0 sec  5.50 MBytes   372 Kbits/sec
+h4 client: [ ID] Interval       Transfer     Bandwidth
+h4 client: [  5]  0.0-125.0 sec  5.62 MBytes   378 Kbits/sec
+h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h4 client: h0 server: [  8]  0.0-125.0 sec  5.62 MBytes   377 Kbits/sec
+h0 server: [  7]  0.0-127.3 sec  5.75 MBytes   379 Kbits/sec
+h0 server: 
+@Test for topology "TreeTopology" ends.
