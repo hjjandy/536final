@@ -125,7 +125,6 @@ def my_test(topo_name, topo_instance):
 				network.stop()
 				fobj.write('\n@Test for topology "%s" ends.\n' % topo_name)
 				fobj.close()
-				time.sleep(2) # sleep 2 seconds
 
 if __name__ == '__main__':
 	setLogLevel( 'info' )
