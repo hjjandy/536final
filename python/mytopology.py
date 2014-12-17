@@ -41,8 +41,8 @@ class LineSwitchTopo(MyTopo):
 class StarSwitchTopo(MyTopo):
 	def __init__(self, n=7, **opts):
 		MyTopo.__init__(self, n, **opts)
-		hosts = dict()
-		switches = dict()
+		hosts = self.hs
+		switches = self.ss
 		for x in range(1, n):
 			self.addLink(switches[0], switches[x], bw=100, delay='10ms', loss=2)
 	def expIDs(self):
@@ -51,8 +51,8 @@ class StarSwitchTopo(MyTopo):
 class TreeSwitchTopo(MyTopo):
 	def __init__(self, n=7, **opts):
 		MyTopo.__init__(self, n, **opts)
-		hosts = dict()
-		switches = dict()
+		hosts = self.hs
+		switches = self.ss
 		for x in range(0, 3):
 			self.addLink(switches[x], switches[2*x+1], bw=100, delay='10ms', loss=2)
 			self.addLink(switches[x], switches[2*x+2], bw=100, delay='10ms', loss=2)
@@ -62,8 +62,8 @@ class TreeSwitchTopo(MyTopo):
 class RingSwitchTopo(MyTopo):
 	def __init__(self, n=7, **opts):
 		MyTopo.__init__(self, n, **opts)
-		hosts = dict()
-		switches = dict()
+		hosts = self.hs
+		switches = self.ss
 		for x in range(0, n):
 			self.addLink(switches[x], switches[(x+1)%n], bw=100, delay='10ms', loss=2)
 	def maxExpIdx(self):
@@ -72,8 +72,8 @@ class RingSwitchTopo(MyTopo):
 class MeshSwitchTopo(MyTopo):
 	def __init__(self, n=7, **opts):
 		MyTopo.__init__(self, n, **opts)
-		hosts = dict()
-		switches = dict()
+		hosts = self.hs
+		switches = self.ss
 		for x in range(0, n):
 			for y in range(x+1, n):
 				self.addLink(switches[x], switches[y], bw=100, delay='10ms', loss=2)
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 	setLogLevel( 'info' )
 	#all_topos = {'LineTopology': LineSwitchTopo(7), 'RingTopology': RingSwitchTopo(7), 'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7), 'MeshTopology': MeshSwitchTopo(7)}
 	#all_topos = {'LineTopology': LineSwitchTopo(7), 'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7)}
-	all_topos = {'LineTopology': LineSwitchTopo(7)}
+	all_topos = {'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7)}
 	for name in all_topos:
 		my_test(name, all_topos[name])
 	#test()
