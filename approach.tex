@@ -54,7 +54,13 @@ structure satisfies. This will be verified in our evaluation.
 Because every network topology contains multiple nodes that hold a host and every 
 host can be used as a server, we need to measure the network for all potential servers
 and discover the best location for placing the server in each topology and for all
-topologies considered. Due to the structure of the networks, 4 hosts in line topology
+topologies considered. Due to the symmetry nature of the networks, 4 hosts in line topology
 need to be simulated as the server separately, {\it h0}, {\it h1}, {\it h2} and 
 {\it h3}; 3 hosts for tree topology, {\it h0}, {\it h1} and {\it h3}; and 
 2 hosts for star topology, {\it h0} and anyone else (\eg {\it h1}). 
+
+In Mininet, we sequentially choose the hosts mentioned above as hosts 
+to act the server and all other hosts act as clients. All clients transmit
+data packets to the server and the server measures the throughput for all 
+incoming connections. By this means, we can measure the performance of 
+all potential servers. 

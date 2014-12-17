@@ -16,11 +16,19 @@ The whole section is organized as the follows:
     \item Part 4, our suggestions according to the results we have.
 \end{itemize}
 
-\subsection{Environment} \label{subsec:environment}
+\subsection{Environment Setup} \label{subsec:environment}
 In our experiments, we use Mininet virtual box provided by official website\cite{Mininet:official}. 
 The virtual machine runs Ubuntu Linux Quantal Quetzal on one CPU and $1024$ MB main memory.
 The host machine we use has Intel\textregistered Core\texttrademark i7-3770 CPU with $12$ GB main memory running on
 $64-bit$ Windows Server 2008 R2 Enterprise version.
+
+The network delay is set as 10{\it ms} since we simulate the network in a company, 
+which typically might be higher in real-world networks \cite{NetworkDelay:web}. 
+The network packet loss rate is 2\%, which is an acceptable rate as mentioned in \cite{PacketLoss:wiki}.
+And all network links have a bandwidth of 100Mbps. 
+
+We simulate each server for 10 iterations, obtaining the average results for 
+analysis. Each iteration lasts for 2 minutes.
 
 \subsection{Throughput} \label{subsec:throughtput}
 
