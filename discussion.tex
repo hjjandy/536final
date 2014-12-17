@@ -2,3 +2,29 @@
 
 In this section, we will discuss some limitations in our work.
 
+There are many types of network topologies as mentioned in \cite{NetworkTopo:wiki},
+but we only handled 3 of them in this paper. Our underlying platform for simulation
+is Mininet \cite{Mininet:official}, which does not provide any mechanisms to construct
+the bus topology. Also, even if we can write code to build ring and mesh topology,
+Mininet itself is not able to process them because of the existence of loop in these
+topologies \cite{MininetFAQ:web}. Some researchers proposed POX, which can handle the
+loop routing by setting routing table \cite{POX:web}. But POX requires manual work 
+to perform the simulation, and does not provide a way for automatic simulation. 
+Due to the time limit, we omit this part in this paper.
+
+Even if we did not evaluate ring and mesh topology, we can infer the results based on 
+theoretical analysis and our evaluation. The ring topology is constructed by connecting
+{\it s0} and {\it s6} in line topology. Then every host in the topology would have same 
+behaviors as {\it s4} in line topology due to the nature of symmetry. 
+For the mesh topology, if we only consider the case with all-to-all connection, we can
+expect all hosts have the same behaviors as {\it s0} in star topology. Every switch 
+connects to all the others directly, which means there are only 3 hops for any pair
+of host along the shortest path, same as the case for the hosts transmitting data to 
+{\it s0} in star topology. 
+
+The evaluation has some problems too. Ideally, the server is connected with 6 hosts in
+our simulation and so the result should contain statistics for 6 clients. But sometimes
+the data for certain clients is missing. Our manual check discovered that all such cases 
+happen for the farthest clients. For instance, in line topology, if {\it h0} acts as the 
+server, data for {\it h6} may be failed to report. This is also a reason for us to 
+simulate multiple times to obtain the average values. 
