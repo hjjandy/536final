@@ -1,6 +1,6 @@
 \section{Discussion} \label{sec:discussion}
 
-In this section, we will discuss some limitations in our work.
+In this section, we will discuss some limitations and possible causes in our work.
 
 There are many types of network topologies as mentioned in \cite{NetworkTopo:wiki},
 but we only handled 3 of them in this paper. Our underlying platform for simulation
@@ -28,3 +28,12 @@ the data for certain clients is missing. Our manual check discovered that all su
 happen for the farthest clients. For instance, in line topology, if {\it h0} acts as the 
 server, data for {\it h6} may be failed to report. This is also a reason for us to 
 simulate multiple times to obtain the average values. 
+
+There are two potential reasons for the data loss. First, Mininet itself has some problems 
+to report the data to the user. We also tried to simulate an aggressive case in which all 
+hosts as as both server and client and data transmission occurs between any pair of 
+client and server simultaneously. The results show that Mininet fails to output certain lines
+of results. Second, the data is lost during the transmission. The data loss only occurs for 
+the farthest clients, which transmits data to the server through multiple other switches and 
+share the network links with multiple other clients. 
+The switches may drop the data packets in some cases, \eg flow control or congestion control.
