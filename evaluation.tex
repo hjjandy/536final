@@ -30,7 +30,37 @@ We simulate each server for 10 iterations, obtaining the average results for
 analysis. Each iteration lasts for 2 minutes.
 
 \subsection{Results and Analysis} \label{subsec:result}
+We performed our experiments as discussed above. And we collected data given by Mininet.
+The notation h{\it x} where {\it x} $\in [0, 6]$ used here are the same with the ones 
+shown in Figure~\ref{fig:topo}. In each table, the first column is the name of the server.
+And for each client, we collected the speed value. The value is an average value of ten
+experiments. And the total value in the last column means the total speed of all clients, 
+which is also the overall througput of the server. Since we have only one server in all the 
+topologies, this value could be used to evaluate the overall throughput of the whole network. 
+Notice that when a node is working as a server, it is not a clinet, that is why we have bar 
+notations in the tables.
 
+The Table~\ref{table:line} here shows the result of the {\it Line Topology}. As we have 
+mentioned before, there are 4 places that we can place our server in total. Let us first 
+focus on only one rwo in the table, which means we just consider when the server is in a fixed
+place, and we have some very interesting observation on different clients. Intuitively, 
+the longer the distance between the server and the client, the worse the performance is. 
+This is true. As we can see in the table, for the same server, as the distance grows, 
+the speed of corresponding client is dropping down. However, it is not a strict linear 
+relationship. For example, when h0 is the server, the nearest client 
+and the farest client have distance $1$ and $6$ respectively. But the nearest client is 
+almost $7.5$ times faster. Thus, when a cliet is near the server it gains far more benifit
+than we expected. This is becasue the link between the server and the nearest client, here
+it is h1, is shared by all clients. Thus this link is the one with highest probability that 
+congestion could happen. However, h1, the nearest client here could take the most advantage of
+this link because of the distance. Thus the speed is not a linear relationship with the distance.
+This is an useful conclusion, we will use this to guide us to choose topologies later.
+
+Now let us consider different rows. It is clear that as the server moving to the center of 
+the line, the overall througput keeps growing. This is because the average distance between
+server and clients becomes smaller as the server moving to the center of the line. But as we 
+can see, the increasing speed is slowing down until the server reaches the center, where it 
+stops growing anymore.
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Line Topology}
@@ -53,6 +83,16 @@ h3 &  243.00  &  376.40  &  611.20  &     -    &  606.70  &  371.20  &  246.20  
 	\end{tabular}
 \end{table}
 
+The Table~\ref{table:star} here shows the result of the {\it Star Topology}. This is a pretty
+simeple topology for it has only two kinds of nodes. When the center node servers as the server 
+all the other nodes have almost the same speed as we can see in the table. And we also find that 
+almost all client nodes have used all the bandwidth it has to communicate width the server.
+Thus this is a pretty good topology if we would like to maximize our overall throughtput.
+
+However, when the server is at one edge. The overall throughput is not very good. This is just as
+we expected. Since it has a longer distance between other edge nodes and the server. Even though 
+the center node still achieve a very good performance, the overall throughput is almost 2/3 of the
+center server mode.
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Star Topology}
@@ -71,6 +111,23 @@ h1 &  603.50  &    -     &  369.60  &  368.30  &  368.60  &  369.60  &  366.80  
 	\end{tabular}
 \end{table}
 
+The Table~\ref{table:tree} here shows the result of the the {\it Tree Topology}. There are 3
+different places for us the compare. For each place, the results also meet our expectations.
+The distance between the server and the client is the main reason why the speed is different.
+What make this topoloty interesting is that the overall throughput is better when h1 is the 
+server node instead of h0. We originally expected that h0 will serve the best, because the 
+average distance is samllest when h0 is the server. But this is not true. We furthure analyzed
+the result, and found that this is because the reason we have mentioned when we were analyzing
+the {\it Line Topology}. The relationship between the distance and the speed is not a linear
+relationship.
+
+Let us go into details about this. Let us assume that all linke has the same weight, $1$. Then,
+we have $3$ types of nodes: $GN$, whose distance is $1$ and get good service from servre; $MN$,
+whose distance is $2$ and get medium servicefrom server, and $BN$, whose distance is $3$ and get
+bad service from the server. When h0 is the server node, we have two $GN$ and four $MN$. When h1
+is the server node, we have three $GN$, one $MN$ and two $BN$. Since the performance-distance 
+relationship follows a convex shape curve, the overall throught of one $GN$ and two $BN$ is better
+than three $MN$. This example shows that we need to consider the distance carefully.
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Tree Topology}
@@ -90,7 +147,6 @@ h3 &  372.90  &  606.30  &  240.00  &     -    &  368.90  &  170.11  &  165.33  
 \hline
 	\end{tabular}
 \end{table}
-
 
 \subsection{Suggestions} \label{subsec:suggestions}
 
