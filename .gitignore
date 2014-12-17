@@ -8,6 +8,8 @@
 *.out
 *.bbl
 *.blg
+report.ps
+*.dvi
 *.pydevproject
 .project
 .metadata
