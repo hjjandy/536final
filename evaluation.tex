@@ -49,22 +49,12 @@ This is true. As we can see in the table, for the same server, as the distance g
 the speed of corresponding client is dropping down. However, it is not a strict linear 
 relationship. For example, when {\it h0} is the server, the nearest client 
 and the farthest client have distance $3$ and $8$ respectively. But the nearest client is 
-almost $7.5$ times faster. Thus, when a client is closer to the server it gains far more benefit
-than we expected. This is because the link between the server and the nearest client
-{\it h1} is shared by all clients. Thus this link is the one with highest probability that 
+almost $7.5$ times faster. Thus, when a client is near the server it gains far more benefit
+than we expected. This is because the link between the server and the nearest client, here
+it is h1, is shared by all clients. Thus this link is the one with highest probability that 
 congestion could happen. However, {\it h1}, the nearest client here, could take the most advantage of
 this link because of the distance. Thus the speed is not a linear relationship with the distance.
 This is an useful conclusion, we will use this to guide us to choose topologies later.
-Figure~\ref{fig:perf-dist} shows the relationship between the throughput and the distance to
-the server ({\it h0}) where the distance is represented by the distance between the switches, 
-which is equal to the actual distance between hosts minus 2.
-
-\begin{figure}[ht]
-\centering 
-	\includegraphics[angle=-90, width=0.45\textwidth, clip]{figs/performance-distance.eps}
-	\caption{Relationship between Throughput and Distance for Server {\it h0} in Line Topology}
-	\label{fig:perf-dist}
-\end{figure}
 
 Now let us consider different rows. It is clear that as the server moving to the center of 
 the line, the overall throughput keeps growing. This is because the average distance between
@@ -137,9 +127,8 @@ we have $3$ types of nodes: $GN$, whose distance (hops between switches here) is
 whose distance is $2$ and get medium service from server, and $BN$, whose distance is $3$ and get
 bad service from the server. When {\it h0} is the server node, we have two $GN$ and four $MN$. When {\it h1}
 is the server node, we have three $GN$, one $MN$ and two $BN$. Since the performance-distance 
-relationship follows a concave shaped curve (see Figure~\ref{fig:perf-dist}), 
-the overall throughput is dominated by $GN$ and then one $GN$ and two $BN$ are 
-better than three $MN$ here. This example shows that we need to consider the distance carefully.
+relationship follows a concave shape curve, the overall throught of one $GN$ and two $BN$ is better
+than three $MN$. This example shows that we need to consider the distance carefully.
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Tree Topology}
@@ -160,5 +149,36 @@ h3 &  372.90  &  606.30  &  240.00  &     -    &  368.90  &  170.11  &  165.33  
 	\end{tabular}
 \end{table}
 
-\subsection{Suggestions} \label{subsec:suggestions}
+Now, let us compare the results among different topologies to echo the expectation we have
+mentioned in Section Approach.
+\begin{table}[ht]
+\centering
+	\caption{Throughput Rank to Selected Server}
+	\label{table:throughput}
+	\begin{tabular}{|l||c|c|c|}
+		\hline 
+		Server   &  Throughput & Local Order & Global Order \\ \hline\hline
+		Line-h0  &   1606.16  &  4   &  9 \\ \hline 
+		Line-h1  &   2113.70  &  3   &  7 \\ \hline 
+		Line-h2  &   2357.09  &  2   &  6 \\ \hline 
+		Line-h3  &   2454.70  &  1   &  4 \\ \hline\hline 
+		Star-h0  &   3645.30  &  1   &  1 \\ \hline 
+        Star-h1  &   2446.40  &  2   &  5 \\ \hline\hline 
+		Tree-h0  &   2665.24  &  2   &  3 \\ \hline 
+		Tree-h1  &   2719.02  &  1   &  2 \\ \hline 
+		Tree-h3  &   1923.54  &  3   &  8 \\ \hline 
+	\end{tabular}
+\end{table}
+As we can see, most of the results meet our expectation. This proves that the average link 
+distance is an important factor to consider. But we also observe some data that does not 
+meet our expectation. And the reason is just like what we mentioned above, the relationship 
+between the throughput and the distance is a non-linear relationship. Those results will help
+us designing or choosing the topology we use.
 
+\subsection{Suggestions} \label{subsec:suggestions}
+As we have discussed above, we observe very important result:
+The throughput of a client and the srever, and distance of them are negatively correlated 
+and follows a concave curve.
+
+This could guide us to have some principles to design or choose topologies. First, we obviously 
+need to consider the average distance between 
