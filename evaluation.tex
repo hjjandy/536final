@@ -163,16 +163,16 @@ h3 &  372.90  &  606.30  &  240.00  &     -    &  368.90  &  170.11  &  165.33  
 	\end{tabular}
 \end{table}
 
-Now, let us compare the results among different topologies to echo the expectation we have
-mentioned in Section Approach.
+Now, let us compare the results among different topologies to verify the assumptions 
+we made in Section~\ref{sec:approach}.
 
 \begin{table}[ht]
 \centering
-	\caption{Throughput Rank to Selected Server}
+	\caption{Throughput Rank to Selected Servers}
 	\label{table:throughput}
 	\begin{tabular}{|l||c|c|c|}
 		\hline 
-		Server   &  Throughput & Local Order & Global Order \\ \hline\hline
+		Server   &  Throughput & Local Rank & Global Rank \\ \hline\hline
 		Line-h0  &   1606.16  &  4   &  9 \\ \hline 
 		Line-h1  &   2113.70  &  3   &  7 \\ \hline 
 		Line-h2  &   2357.09  &  2   &  6 \\ \hline 
@@ -184,11 +184,13 @@ mentioned in Section Approach.
 		Tree-h3  &   1923.54  &  3   &  8 \\ \hline 
 	\end{tabular}
 \end{table}
-As we can see, most of the results meet our expectation. This proves that the average link 
+As we can see, most of the results meet our expectation. For example, {\it h0} in 
+star topology is the best location to place the server and {\it h0} in line topology 
+is the worst location. This proves that the average link 
 distance is an important factor to consider. But we also observe some data that does not 
-meet our expectation. And the reason is just like what we mentioned above, the relationship 
-between the throughput and the distance is a non-linear relationship. Those results will help
-us designing or choosing the topology we use.
+meet our expectation. And the reason is just like what we mentioned above: the relationship 
+between the throughput and the distance is non-linear. Those results will help
+us design or choose the topology we use.
 
 \subsection{Suggestions} \label{subsec:suggestions}
 As we have discussed above, we observe very important result:
