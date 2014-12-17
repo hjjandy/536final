@@ -37,3 +37,10 @@ of results. Second, the data is lost during the transmission. The data loss only
 the farthest clients, which transmits data to the server through multiple other switches and 
 share the network links with multiple other clients. 
 The switches may drop the data packets in some cases, \eg flow control or congestion control.
+
+We omitted some factors that can influence the data transmission, \eg distance. If the network
+exists in the same building, distance can be simply ignored. But if the company has several 
+buildings locating in different places, the distance factor may have to be considered as it might 
+greatly impact the efficiency and the best location for placing the server will be different. 
+And in real-world networks, the delay and packet loss rate might not be identical for all 
+network links. These complex cases need to be further considered in future work. 

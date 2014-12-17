@@ -1,7 +1,20 @@
 \section{Conclusion} \label{sec:conclusion}
 
-In this section, we will conclude our work and talk about related work. 
-Also we will try to mention limitations of our work and some other challenges 
-that are related to this topic.
+In this paper, we present an automatic simulation approach to measure the 
+the network behaviors for TCP protocol under different network topologies. 
+We simplify our model to a 7 $<$host, switch$>$ pairs for any topology and 
+each switch is connected with some other switches due to the topology definition.
+All data transmission goes through at least two switches from the sender 
+host to the receiver host. 
 
+We aim at finding out the best location to place the server in a scenario of one server 
+and multiple clients. In a specific topology, there are different locations
+for the server, based on the distance to all the other nodes. Therefore, we 
+select all potential locations as server and perform simulation on them separately.
+We leverage Mininet for the simulation and collect the average results 
+for multiple independent runs to analyze. 
 
+The evaluation shows that ......
+
+We have some limitations as discussed in Section~\ref{sec:discussion}. Some 
+are related to Mininet itself and some can be further improved in future work.
