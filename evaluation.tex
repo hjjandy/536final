@@ -193,30 +193,30 @@ between the throughput and the distance is non-linear. Those results will help
 us design or choose the topology we use.
 
 \subsection{Suggestions} \label{subsec:suggestions}
-According to the result we have, we have something guidance when we are facing the problem of
+According to the results we have, we have something for guidance when we are facing the problem of
 choosing or designing a network topology. Theoretically, the most important factor for overall 
-througput to consider is the average distance between the server and all clients. The samller 
-the value is, the better the overall througput is. For fairness, suppose we have the same 
+throughput to consider is the average distance between the server and all clients. The smaller 
+the value is, the better the overall throughput is. For fairness, suppose we have the same 
 average distance, we need to consider the standard deviation. It means that all clients will 
-get fair services if standard deviation is samll, which means the clients has similar distances 
-to the server. But we also need to consider what we have mentioned non-linear property of the two
-factors. For similar average distance, the larger one may have a better overall througput. This is 
-someting we have to test in real world.
+get fair service if standard deviation is small, which means the clients has similar distances 
+to the server. But we also need to consider what we have mentioned non-linear attribute of the two
+factors. For similar average distance, the larger one may have a better overall throughput. This is 
+what we have to test in real world.
 
-Talking about real world situations, we actaully have some more things to consider. First thing and
+Talking about real world situations, we actually have some more things to consider. First thing and
 the most important thing to consider is what is expected. For example, if all users are treated 
 equally in the topology, then {\it Star Topology} with server in the center is perhaps the only 
-choice. If there are some priviledged node in the topology, then we could choose others. Basically, 
+choice. If there are some privileged node in the topology, then we could choose others. Basically, 
 we need to identify the number of different types of nodes in the topology and then follow the distribution, 
 we could find the topology we want.
 
-Other than the that, we still have some other factors to consider in real world situations. The most 
+Other than that, we still have some other factors to consider in real world situations. The most 
 important one is that the geographically distributed buildings may limit our design or choice. And when 
-we face this situations, we usually need to consider the priviledges of different departments in different 
-buildings, and their priorities. This will make the problem complicated. And when we add some more factors 
-like different link capabilities, we will have more complicated models.
+we face this situations, we usually need to consider the privileges of different departments in different 
+buildings, and their priorities. This will make the problem complex. And when we add some more factors 
+like different link capabilities, we will have more complex models.
 
-Considering all factors, we think identifying important constrains is the most important thing to do in solving 
-real world problems. When we have different constrains, different factors need to be considered. For example, 
-average distance for overall throughput, standard deviation for fairness. Then, we may have some condidates. 
+Considering all factors, we think identifying important constraints is the most important thing to do in solving 
+real world problems. When we have different constraints, different factors need to be considered. For example, 
+average distance for overall throughput, standard deviation for fairness. Then, we may have some candidates. 
 A simulation on a virtual network is necessary if we want to find the best solution.
