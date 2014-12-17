@@ -12,10 +12,12 @@ for x in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
         number[(x, y)] = 0
 
 for name in files: # 'file' is a builtin type, 'name' is a less-ambiguous variable name.
-        try:
-            with open(name) as f: # No need to specify 'r': this is the default.
-                # sys.stdout.write(f.read())
-                line = f.readline()
+    #print name + "\n\n"
+    try:
+        with open(name) as f: # No need to specify 'r': this is the default.
+            # sys.stdout.write(f.read())
+            line = f.readline()
+            while( line != ""):
                 args = line.split()
                 #for arg in args:
                 #    print arg
@@ -34,22 +36,26 @@ for name in files: # 'file' is a builtin type, 'name' is a less-ambiguous variab
                     client = 'h5'
                 if(args[4] == "10.0.0.7"):
                     client = 'h6'
-                speed = int(args[2])
+                speed = float(args[2])
                 total[(server, client)] = total[(server, client)] + speed
                 number[(server, client)] = number[(server, client)] + 1
-        except IOError as exc:
-            if exc.errno != errno.EISDIR: # Do not fail if a directory is found, just ignore it.
-                raise # Propagate other kinds of IOError.
+                line = f.readline()
+    except IOError as exc:
+        if exc.errno != errno.EISDIR: # Do not fail if a directory is found, just ignore it.
+            raise # Propagate other kinds of IOError.
+    #for (x, y) in total:
+    #    print total[(x, y)]
 
 for x in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
     output.write("\n\\hline\n")
     for y in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
         if(number[(x, y)] != 0):
-            output.write(str("{0:.2f}".format(float(total[(x,y)])/float(number[(x,y)]))) + " & ")
+            # print total[(x,y)]
+            output.write(" " + str("{0:.2f}".format(float(total[(x,y)])/float(number[(x,y)]))) + " ")
         else:
-            output.write("0.00\t")
-            if y not in ("h6"):
-                output.write(" & ")
+            output.write(" 0.00 ")
+        if y not in ("h6"):
+            output.write(" & ")
 output.write("\n\\hline")
 
 output.close()
