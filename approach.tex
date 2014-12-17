@@ -10,6 +10,9 @@ and line topology, 7 nodes can also build a symmetric structure. The switches ar
 as s{\it x} and the corresponding hosts are named as h{\it x} where {\it x} $\in [0, 6]$.
 
 The network topologies considered in this report are presented in Figure~\ref{fig:topo}.
+There are many types of network topologies in read world, but
+due to some reasons we will discuss in Section~\ref{sec:discussion}, we only consider
+3 of them in this report: {\it Line}, {\it Tree} and {\it Star}. 
 
 \begin{figure}[ht]
 \centering
@@ -32,3 +35,26 @@ The network topologies considered in this report are presented in Figure~\ref{fi
 \caption{Different Network Topologies Considered in This Report} 
 \label{fig:topo}
 \end{figure}
+
+To measure the network behaviours, we leverage Mininet \cite{Mininet:official}
+to simulate the network with different topologies. In order to make our simulation
+close to the real-world network, we need to set certain parameters (\eg network 
+delay, packet loss rate) when we construct the topologies. These parameter may be
+variable, but for simplicity, we set the same parameter for all network links. 
+
+Our scenario works with one server and multiple clients, each hiding behind a 
+switch, as shown in Figure~\ref{fig:topo}.
+
+In theory, at least 3 hops are required for any host to reach another host according
+to Figure~\ref{fig:topo}. Then ideally, it is the optimal structure to place the server 
+at a location where all clients need only 3 hops to reach it. As we can see, only 
+when the server is placed at the center ({\it h0}) in star topology, the optimal 
+structure satisfies. This will be verified in our evaluation.
+
+Because every network topology contains multiple nodes that hold a host and every 
+host can be used as a server, we need to measure the network for all potential servers
+and discover the best location for placing the server in each topology and for all
+topologies considered. Due to the structure of the networks, 4 hosts in line topology
+need to be simulated as the server separately, {\it h0}, {\it h1}, {\it h2} and 
+{\it h3}; 3 hosts for tree topology, {\it h0}, {\it h1} and {\it h3}; and 
+2 hosts for star topology, {\it h0} and anyone else (\eg {\it h1}). 
