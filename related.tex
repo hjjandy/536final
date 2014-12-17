@@ -18,7 +18,9 @@ scenario as in this paper. In that case, our simulation needs to be changed
 to adapt the new packet loss detection algorithm because the packet loss rate 
 stays the same but the TCP throughput increases. The new algorithm will not 
 affect our result of best location for the server if all other parameters 
-stay unchanged. 
+stay unchanged. Savage presented {\it sting} to measure the network loss of TCP
+protocol \cite{Savage:1999}, the results of which can be used in simulations to determine the 
+packet loss rate parameter. 
 
 To assist the researchers
 measuring the network latency and bandwidth, Russinovich released a tool called PsPing
@@ -26,3 +28,8 @@ measuring the network latency and bandwidth, Russinovich released a tool called 
 PsPing can complete similar job as in our work in this paper if provided with the same  
 networks. The only difference is that our work is simpler to implement and 
 perform with Mininet as the underlying network platform. 
+
+Lehman did a similar work  \cite{Lehman:2001} as our simulation in this paper.
+He measured the throughput of TCP on a real-world network. While his result is
+useful, it does not helpful for a company to make a decision of placing the 
+server in a network. 
