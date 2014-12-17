@@ -16,67 +16,6 @@ import time
 Ex_seconds = 120
 Mo_seconds = Ex_seconds + 20
 
-class SingleSwitchTopo(Topo):
-	#Build the topology here.
-	#We built a simple star topology for this assignment.
-	#If you want to build other interesting topologies
-	#   such as a tree, fat-tree, or jelly-fish, it can be done here.
-	#Single switch connected to 4 hosts.
-	def __init__(self, n=4, **opts):
-		Topo.__init__(self, **opts)
-		BottomClient = self.addHost('hb')
-		LeftClient = self.addHost('hl')
-		RightClient = self.addHost('hr')
-		TopClient = self.addHost('ht')
-		switchServer = self.addSwitch('s0')
-		#default Configuration
-		self.addLink(LeftClient, switchServer, bw=100)
-		self.addLink(RightClient, switchServer, bw=100)
-		self.addLink(TopClient, switchServer, bw=100)
-		self.addLink(BottomClient, switchServer, bw=100)
-def test():
-	os.system('mn -c')
-	os.system('sysctl -w net.ipv4.tcp_congestion_control=reno')
-	#You can add os.system code here
-	#Note that the configuration in this python script will affect your mininet.
-	#Therefore, please make sure that you restore the configuration to the default values.
-	switches = {  # 'reference kernel': KernelSwitch,
-				  #'reference user': UserSwitch,
-				  'Open vSwitch kernel': OVSKernelSwitch }
-	for name in switches:
-		switch = switches[ name ]
-		topo = SingleSwitchTopo(0)
-		network = Mininet(topo=topo, host=CPULimitedHost, link=TCLink, switch = switch)
-		network.start()
-		#Initialize the Network
-		#If you want to use the command line interface, use CLI(network).
-		#Details of the CLI are at:
-		#   http://mininet.org/walkthrough/#part-3-mininet-command-line-interface-cli-commands
-		#You can use popen features as done below.
-		#Details of popen are at:
-		#   https://docs.python.org/2/library/subprocess.html
-		popens = {}
-		hosts=network.hosts
-		switches=network.switches
-		#popens[(hosts[1], 'server')] = hosts[1].popen('iperf -s')
-		#popens[(hosts[2], 'client')] = hosts[2].popen('iperf -c {} -t {}'
-		#							.format(hosts[1].IP(), str(Ex_seconds)))
-		for h in hosts:
-			popens[(h, 'server')] = h.popen('iperf -s')
-		for hc in hosts:
-			for hs in hosts:
-				if hc.name != hs.name:
-					popens[(hc, 'client')] = hc.popen('iperf -c {} -t {}'.format(hs.IP(), str(Ex_seconds)))
-		print 'Monitoring output for', Mo_seconds, 'seconds'
-		endTime = time() + Mo_seconds
-		for h, line in pmonitor(popens, timeoutms=500):
-			if h:
-				print '%s %s: %s' % (h[0].name, h[1], line)
-			if time() >= endTime:
-				for p in popens.values():
-					p.send_signal(SIGINT)
-		network.stop()
-
 class MyTopo(Topo):
 	def __init__(self, n=7, **opts):
 		Topo.__init__(self, **opts)
@@ -87,7 +26,7 @@ class MyTopo(Topo):
 			self.hs[x] = self.addHost('h{}'.format(x))
 			self.ss[x] = self.addSwitch('s{}'.format(x))
 			self.addLink(self.hs[x], self.ss[x], bw=100, delay='10ms', loss=2)
-	def maxExpIds(self):
+	def expIDs(self):
 		return range(0, self.N)
 
 class LineSwitchTopo(MyTopo):
@@ -97,7 +36,7 @@ class LineSwitchTopo(MyTopo):
 		switches = self.ss
 		for x in range(0, n-1):
 			self.addLink(switches[x], switches[x+1], bw=100, delay='10ms', loss=2)
-	def maxExpIds(self):
+	def expIDs(self):
 		return [0, 1, 2, 3] #N=7
 			
 class StarSwitchTopo(MyTopo):
@@ -107,7 +46,7 @@ class StarSwitchTopo(MyTopo):
 		switches = dict()
 		for x in range(1, n):
 			self.addLink(switches[0], switches[x], bw=100, delay='10ms', loss=2)
-	def maxExpIds(self):
+	def expIDs(self):
 		return [0, 1]
 
 class TreeSwitchTopo(MyTopo):
@@ -118,7 +57,7 @@ class TreeSwitchTopo(MyTopo):
 		for x in range(0, 3):
 			self.addLink(switches[x], switches[2*x+1], bw=100, delay='10ms', loss=2)
 			self.addLink(switches[x], switches[2*x+2], bw=100, delay='10ms', loss=2)
-	def maxExpIds(self):
+	def expIDs(self):
 		return [0, 1, 3] # make sure self.N = 7
 		
 class RingSwitchTopo(MyTopo):
@@ -139,7 +78,7 @@ class MeshSwitchTopo(MyTopo):
 		for x in range(0, n):
 			for y in range(x+1, n):
 				self.addLink(switches[x], switches[y], bw=100, delay='10ms', loss=2)
-	def maxExpIds(self):
+	def expIDs(self):
 		return [0]
 
 def my_test(topo_name, topo_instance):
@@ -155,7 +94,7 @@ def my_test(topo_name, topo_instance):
 		switch = switches[name]
 		# 10 runs for each topology
 		for iter in range(0, 1):
-			for sID in topo_instance.maxExpIds():
+			for sID in topo_instance.expIDs():
 				sName = 'h%d' % sID
 				fname = '%s-%02d-%s' % (topo_name, (iter+1), sName)
 				fobj = open(fname, 'w')
