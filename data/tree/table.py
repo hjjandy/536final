@@ -59,7 +59,7 @@ for x in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
         if y not in ("h6"):
             output.write(" & ")
         else:
-            output.write(" & " + str("{0:.2f}".format(sum)) + " ")
+            output.write(" & " + str("{0:.2f}".format(sum)) + " \\\\")
 output.write("\n\\hline")
 
 output.close()
