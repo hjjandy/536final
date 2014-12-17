@@ -14,7 +14,11 @@ select all potential locations as server and perform simulation on them separate
 We leverage Mininet for the simulation and collect the average results 
 for multiple independent runs to analyze. 
 
-The evaluation shows that ......
+The evaluation shows that, we should place the server at the center 
+of star topology and never place it at the node with only one neighbor 
+in line topology, if possible. Among the three topologies, we should never 
+consider line topology as an option and if possible we should always choose 
+star topology to construct a network for best performance.
 
 We have some limitations as discussed in Section~\ref{sec:discussion}. Some 
 are related to Mininet itself and some can be further improved in future work.
