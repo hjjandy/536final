@@ -65,3 +65,17 @@
 	title={ Measuring latencies with the DTrace TCP provider },
 	howpublished={\url{https://blogs.oracle.com/amaguire/entry/measuring_latencies_with_the_dtrace}}
 }
+
+
+@inproceedings{FonsecaCrovella:Infocom05,
+  author	= {Fonseca, Nahur and Crovella, Mark},
+  title		= {Bayesian Packet Loss Detection for {TCP}},
+  booktitle	= {Proceedings of Infocom 2005},
+  location	= {Miami, FL},
+  month		= mar,
+  year		= {2005},
+  URL		= {http://www.cs.bu.edu/faculty/crovella/paper-archive/infocom05-tcpbayes.pdf},
+  abstract	= {One of TCP's critical tasks is to determine which packets are lost in the network, as a basis for control actions (flow control and packet retransmission). Modern TCP implementations use two mechanisms: timeout, and fast retransmit. Detection via timeout is necessarily a time-consuming operation; fast retransmit, while much quicker, is only effective for a small fraction of packet losses. In this paper we consider the problem of packet loss detection in TCP more generally. We concentrate on the fact that TCP's control actions are necessarily triggered by inference of packet loss, rather than conclusive knowledge. This suggests that one might analyze TCP's packet loss detection in a standard inferencing framework based on probability of detection and probability of false alarm. This paper makes two contributions to that end: First, we study an example of more general packet loss inference, namely optimal Bayesian packet loss detection based on round trip time. We show that for long-lived flows, it is frequently possible to achieve high detection probability and low false alarm probability based on measured round trip time. Second, we construct an analytic performance model that incorporates general packet loss inference into TCP. We show that for realistic detection and false alarm probabilities (as are achievable via our Bayesian detector) and for moderate packet loss rates, the use of more general packet loss inference in TCP can improve throughput by as much as 25%.}
+}
+
+

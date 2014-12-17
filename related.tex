@@ -10,6 +10,16 @@ for services using TCP protocol \cite{Schlossnagle:2013}.
 All these results are helpful to determine the network delay parameter in simulations 
 as in our work.
 
+Fonseca {\it etc.} proposed a Bayesian approach to detect the packet loss in
+TCP with low false positives \cite{FonsecaCrovella:Infocom05}. Their work suggest
+that a more general packet loss inference in TCP can largely improve the throughput.
+The results can be applied in constructing the network in a company, with same 
+scenario as in this paper. In that case, our simulation needs to be changed
+to adapt the new packet loss detection algorithm because the packet loss rate 
+stays the same but the TCP throughput increases. The new algorithm will not 
+affect our result of best location for the server if all other parameters 
+stay unchanged. 
+
 To assist the researchers
 measuring the network latency and bandwidth, Russinovich released a tool called PsPing
 \cite{PsPing:tool}, which can be used to measure the the real-world network behaviors. 
