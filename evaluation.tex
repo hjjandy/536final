@@ -71,6 +71,7 @@ the line, the overall throughput keeps growing. This is because the average dist
 server and clients becomes smaller as the server moving to the center of the line. But as we 
 can see, the increasing speed is slowing down until the server reaches the center, where it 
 stops growing any more.
+
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Line Topology}
@@ -103,6 +104,7 @@ However, when the server is placed at one edge. The overall throughput is not ve
 we expected. Since it has a longer distance between other edge nodes and the server. Even though 
 the edge node still achieves a very good performance, the overall throughput is almost 2/3 of the
 center server mode.
+
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Star Topology}
@@ -140,6 +142,7 @@ is the server node, we have three $GN$, one $MN$ and two $BN$. Since the perform
 relationship follows a concave shaped curve (see Figure~\ref{fig:perf-dist}), 
 the overall throughput is dominated by $GN$ and then one $GN$ and two $BN$ are 
 better than three $MN$ here. This example shows that we need to consider the distance carefully.
+
 \begin{table}
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Tree Topology}
@@ -160,5 +163,37 @@ h3 &  372.90  &  606.30  &  240.00  &     -    &  368.90  &  170.11  &  165.33  
 	\end{tabular}
 \end{table}
 
-\subsection{Suggestions} \label{subsec:suggestions}
+Now, let us compare the results among different topologies to echo the expectation we have
+mentioned in Section Approach.
 
+\begin{table}[ht]
+\centering
+	\caption{Throughput Rank to Selected Server}
+	\label{table:throughput}
+	\begin{tabular}{|l||c|c|c|}
+		\hline 
+		Server   &  Throughput & Local Order & Global Order \\ \hline\hline
+		Line-h0  &   1606.16  &  4   &  9 \\ \hline 
+		Line-h1  &   2113.70  &  3   &  7 \\ \hline 
+		Line-h2  &   2357.09  &  2   &  6 \\ \hline 
+		Line-h3  &   2454.70  &  1   &  4 \\ \hline\hline 
+		Star-h0  &   3645.30  &  1   &  1 \\ \hline 
+        Star-h1  &   2446.40  &  2   &  5 \\ \hline\hline 
+		Tree-h0  &   2665.24  &  2   &  3 \\ \hline 
+		Tree-h1  &   2719.02  &  1   &  2 \\ \hline 
+		Tree-h3  &   1923.54  &  3   &  8 \\ \hline 
+	\end{tabular}
+\end{table}
+As we can see, most of the results meet our expectation. This proves that the average link 
+distance is an important factor to consider. But we also observe some data that does not 
+meet our expectation. And the reason is just like what we mentioned above, the relationship 
+between the throughput and the distance is a non-linear relationship. Those results will help
+us designing or choosing the topology we use.
+
+\subsection{Suggestions} \label{subsec:suggestions}
+As we have discussed above, we observe very important result:
+The throughput of a client and the srever, and distance of them are negatively correlated 
+and follows a concave curve.
+
+This could guide us to have some principles to design or choose topologies. First, we obviously 
+need to consider the average distance between 
