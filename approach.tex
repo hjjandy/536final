@@ -59,15 +59,40 @@ need to be simulated as the server separately, {\it h0}, {\it h1}, {\it h2} and
 {\it h3}; 3 hosts for tree topology, {\it h0}, {\it h1} and {\it h3}; and 
 2 hosts for star topology, {\it h0} and anyone else (\eg {\it h1}). 
 
-With the same network parameters, distance seems to be the only factor that 
-influence the throughput. Ideally, if we only take the distance into account, 
+With the same network parameters, the distance seems to be the only factor that 
+influences the throughput. 
+Table~\ref{table:distance} depicts the average distance to 
+a selected server in network topology. Column 3 shows the local order
+of the average distances in a specific topology and the last 
+column presents the global order of the distances among all 
+potential servers in all topologies. 
+Ideally, if we only take the distance into account, 
 we can infer that the best locations for the server should be {\it h0} 
 in star topology, {\it h0} in tree topology, {\it h1} in star topology and 
 {\it h1} in tree topology while the last two have the same average distance
 to the other nodes. The worst ones should be {\it h0}, {\it h1} in line topology, 
 and {\it h3} in tree topology.
 
-In Mininet, we sequentially choose the hosts mentioned above as hosts 
+\begin{table}[ht]
+\centering
+	\caption{Average Distance to Selected Server}
+	\label{table:distance}
+	\begin{tabular}{|l||c|c|c|}
+		\hline 
+		Server   &  Avg. Distance & Local Order & Global Order \\ \hline\hline
+		Line-h0  &   5.50  &  4   &  9 \\ \hline 
+		Line-h1  &   4.67  &  3   &  7 \\ \hline 
+		Line-h2  &   4.17  &  2   &  6 \\ \hline 
+		Line-h3  &   4.00  &  1   &  5 \\ \hline\hline 
+		Star-h0  &   3.00  &  1   &  1 \\ \hline 
+        Star-h1  &   3.83  &  2   &  3 \\ \hline\hline 
+		Tree-h0  &   3.67  &  1   &  2 \\ \hline 
+		Tree-h1  &   3.83  &  2   &  3 \\ \hline 
+		Tree-h3  &   4.67  &  3   &  7 \\ \hline 
+	\end{tabular}
+\end{table}
+
+In Mininet, we sequentially choose the hosts mentioned above 
 to act the server and all other hosts act as clients. All clients transmit
 data packets to the server and the server measures the throughput for all 
 incoming connections. By this means, we can measure the performance of 
