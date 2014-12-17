@@ -6,6 +6,8 @@
 *.log
 *.pdf
 *.out
+*.bbl
+*.blg
 *.pydevproject
 .project
 .metadata
