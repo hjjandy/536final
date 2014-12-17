@@ -1,14 +1,51 @@
 \section{Motivation} \label{sec:motivation}
 
-Internet is a remarkable story. It achieves huge success in many different aspects, which makes it necessary in modern enterprises.
-As a result, more and more devices in enterprises are connected to the Internet, which makes the network larger and larger. Now as the network size keeps growing, we are facing many challenging problems.
-One of those most challenging problems is that the performance difference under different network topologies.
+Internet is a remarkable story. It achieves huge success in many different aspects, 
+which makes it necessary in modern enterprises.
+As a result, more and more devices in enterprises are connected to the Internet, 
+which makes the network larger and larger. Now as the network size keeps growing, 
+we are facing many challenging problems.
+One of those most challenging problems is 
+that the performance difference under different network topologies.
 
 Let us first introduce the problem.
-Nowadays, many enterprises have more than one buildings which makes the devices connected to the Internet geographically distributed. But those networks will also share some common network equipments like mail server or proxy server. Then how to design the network topology has became a critical problem. This problem is not only important for enterprises. It is also a very common problem we could possibly meet everyday. When we try to set up our own network in our houses or apartments. We face the same problem.
+Nowadays, many enterprises have more than one buildings 
+which makes the devices connected to the Internet geographically distributed. 
+But those networks will also share some common network equipments, 
+like mail server or proxy server. 
+Then how to design the network topology has became a critical problem. 
+This problem is not only important for enterprises. 
+It is also a very common problem we could possibly meet everyday. 
+When we try to set up our own network in our houses or apartments. 
+We are facing the same problem.
 
-Different network topology will have a huge influence on the network behaviors. Among all the network features, two of them caught our attention: the overall throughput and fairness. First, we surely want to make full use of the network equipments we have. It will give us a better, faster and more reliable service if we can take advantage of the full power of the machines. And also, we want to treat each node in the topology equally, which means we need to guarantee fairness among all the nodes in the topology.
+Different network topology will have a huge influence on the network behaviors. 
+Among all the network features, two of them caught our attention: 
+the overall throughput and fairness. 
+First, we surely want to make full use of the network equipments we have. 
+It will give us a better, faster and more reliable service 
+if we can take advantage of the full power of the machines. 
+And also, we want to treat each node in the topology equally, 
+which means we need to guarantee fairness among all the nodes in the topology.
  
-In this project, we will compare the network behaviors, focusing on overall throughput and fairness, under different topologies. And by studying this, we hope to answer the following question: What kind of topology is best for an enterprise when they try to design their network topology? We also believe that this work will also help families make decisions when they are arguing that how to deploy their home network.
+In this project, we will compare the network behaviors, 
+focusing on overall throughput and fairness, under different topologies. 
+And by studying this, we hope to answer the following question: 
+What kind of topology is best for an enterprise when they try to design their network topology? 
+We also believe that this work will also help families make decisions 
+when they are arguing that how to deploy their home network.
 
-Since the real network topology is very hard to simulate. We decide to simplify the problem a little bit.Firstly, we believe that the nodes in a topology will not be very large. This is a reasonable assumption, since devices within a certain distance could be logically merged into one node in the topology. Thus we decided to use seven nodes in our topology: one server node and six client nodes. This is another assumption we made. We decided to put the server nodes into only one logical node because in real world the servers shared by different departs are usually maintained by the IT department. And we also assume that the packet loss ratio is \textit{0.02}, which is considered acceptable \cite{PacketLoss:wiki}. Also to eliminate the influence of other factors like distance, we choose to use symmetric network topologies, and use the same distance between nodes and the same configuration for all the nodes.
+Since the real network topology is very hard to simulate. 
+We decide to simplify the problem a little bit. 
+Firstly, we believe that the nodes in a topology will not be very large. 
+This is a reasonable assumption, since devices within a certain distance 
+could be logically merged into one node in the topology. 
+Thus we decided to use seven nodes in our topology: 
+one server node and six client nodes. This is another assumption we made. 
+We decided to put the server nodes into only one logical node 
+because in real world the servers shared by different departments are usually 
+maintained by the IT department. And we also assume that 
+the packet loss ratio is \textit{0.02}, which is considered acceptable \cite{PacketLoss:wiki}. 
+Also to eliminate the influence of other factors like distance, 
+we choose to use symmetric network topologies, 
+and use the same distance between nodes and the same configuration for all the nodes.
