@@ -11,7 +11,6 @@ from signal import SIGINT
 from time import time
 import os
 import math
-import time
 
 Ex_seconds = 120
 Mo_seconds = Ex_seconds + 20
