@@ -47,15 +47,19 @@ for name in files: # 'file' is a builtin type, 'name' is a less-ambiguous variab
     #    print total[(x, y)]
 
 for x in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
-    output.write("\n\\hline\n")
+    output.write("\n\\hline\n" + x + " & ")
+    sum = 0
     for y in ('h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
         if(number[(x, y)] != 0):
             # print total[(x,y)]
             output.write(" " + str("{0:.2f}".format(float(total[(x,y)])/float(number[(x,y)]))) + " ")
+            sum = sum + float(total[(x,y)])/float(number[(x,y)])
         else:
             output.write(" 0.00 ")
         if y not in ("h6"):
             output.write(" & ")
+        else:
+            output.write(" & " + str("{0:.2f}".format(sum)) + " ")
 output.write("\n\\hline")
 
 output.close()
