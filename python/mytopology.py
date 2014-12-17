@@ -93,7 +93,7 @@ def my_test(topo_name, topo_instance):
 	for name in switches:
 		switch = switches[name]
 		# 10 runs for each topology
-		for iter in range(0, 1):
+		for iter in range(0, 10):
 			for sID in topo_instance.expIDs():
 				sName = 'h%d' % sID
 				fname = '%s-%02d-%s' % (topo_name, (iter+1), sName)
