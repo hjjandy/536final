@@ -128,9 +128,7 @@ def my_test(topo_name, topo_instance):
 
 if __name__ == '__main__':
 	setLogLevel( 'info' )
-	#all_topos = {'LineTopology': LineSwitchTopo(7), 'RingTopology': RingSwitchTopo(7), 'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7), 'MeshTopology': MeshSwitchTopo(7)}
 	all_topos = {'LineTopology': LineSwitchTopo(7), 'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7)}
-	#all_topos = {'StarTopology': StarSwitchTopo(7), 'TreeTopology': TreeSwitchTopo(7)}
 	for name in all_topos:
 		my_test(name, all_topos[name])
 	#test()
